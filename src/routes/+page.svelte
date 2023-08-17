@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { Button } from '$components';
 	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
 
 	interface Player {
 		summonerName: string;
@@ -34,9 +35,14 @@
 
 <h1>Player list</h1>
 <Button />
-<p>Product ID: {$page.params.id}</p>
 <ul>
 	{#each list as item}
 		<li>{item.leaguePoints} - {item.summonerName}</li>
 	{/each}
 </ul>
+
+<button
+	on:click={() => {
+		goto('/about');
+	}}>go to about</button
+>
